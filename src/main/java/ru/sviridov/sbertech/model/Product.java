@@ -1,18 +1,28 @@
-package ru.sviridov.sbertech;
+package ru.sviridov.sbertech.model;
 
-import org.hibernate.annotations.Entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Product {
 
     @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
     private String name;
 
     private String attribute;
+
+    public Product(String name, String attribute) {
+        this.name = name;
+        this.attribute = attribute;
+    }
 
     public String getId() {
         return id;
