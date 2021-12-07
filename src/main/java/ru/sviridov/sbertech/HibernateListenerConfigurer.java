@@ -30,14 +30,7 @@ public class HibernateListenerConfigurer {
     public HibernateListenerConfigurer(EntityManagerFactory entityManagerFactory) {
         this.entityManagerFactory = entityManagerFactory;
     }
-/*
-    @Autowired
-    public HibernateListenerConfigurer(EntityManagerFactory entityManagerFactory, UpdateEventListenerClass updateListener, InsertEventListenerClass insertListener) {
-        this.entityManagerFactory = entityManagerFactory;
-        this.updateListener = updateListener;
-        this.insertListener = insertListener;
-    }
-*/
+
     @PostConstruct
     protected void init() {
         SessionFactoryImpl sessionFactory = entityManagerFactory.unwrap(SessionFactoryImpl.class);

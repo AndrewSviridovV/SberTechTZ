@@ -22,6 +22,9 @@ public class Product {
 
     private String attribute;
 
+    public Product() {
+    }
+
     public Product(String id, String name, String attribute) {
         this.id = id;
         this.name = name;
@@ -50,5 +53,14 @@ public class Product {
 
     public void setAttribute(String attribute) {
         this.attribute = attribute;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", attribute='" + attribute + '\'' +
+                '}';
     }
 }

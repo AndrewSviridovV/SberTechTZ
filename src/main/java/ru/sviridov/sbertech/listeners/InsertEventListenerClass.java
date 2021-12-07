@@ -1,7 +1,6 @@
 package ru.sviridov.sbertech.listeners;
 
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.apache.commons.lang3.tuple.Pair;
 import org.hibernate.event.spi.PostInsertEvent;
 import org.hibernate.event.spi.PostInsertEventListener;
 import org.hibernate.persister.entity.EntityPersister;
@@ -21,9 +20,9 @@ public class InsertEventListenerClass implements PostInsertEventListener {
     @Override
     public void onPostInsert(PostInsertEvent postInsertEvent) {
         //Subscriber to the insert events on your entities.
-        System.out.println("The Event comes here with data: "+ Arrays.toString(postInsertEvent.getState()));
-        //postInsertEvent.getSession().getActionQueue()
-        cashData.getMapCASHDATA().add(new MutablePair<>("insert", (Product)postInsertEvent.getEntity()));
+        System.out.println("The PostInsertEvent comes here with data: "+ Arrays.toString(postInsertEvent.getState()));
+        System.out.println("onPostInsert");
+        cashData.getCASHDATA().add(new MutablePair<>("insert", (Product)postInsertEvent.getEntity()));
     }
 
     @Override

@@ -34,11 +34,11 @@ public class CashData {
     private static ArrayList<Pair<String,Product>> CASHDATA;
 
 
-    public ArrayList<Pair<String,Product>> getMapCASHDATA() {
+    public ArrayList<Pair<String,Product>> getCASHDATA() {
         return CASHDATA;
     }
 
-    public  void setMapCASHDATA(ArrayList<Pair<String,Product>> CASHDATA) {
+    public  void setCASHDATA(ArrayList<Pair<String,Product>> CASHDATA) {
         CashData.CASHDATA = CASHDATA;
     }
 

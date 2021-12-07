@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import ru.sviridov.sbertech.CashData;
 import ru.sviridov.sbertech.model.Product;
 
+import java.util.Arrays;
+
 @Component
 public class UpdateEventListenerClass implements PostUpdateEventListener {
 
@@ -18,8 +20,10 @@ public class UpdateEventListenerClass implements PostUpdateEventListener {
     @Override
     public void onPostUpdate(PostUpdateEvent postUpdateEvent) {
         //Subscriber to the update events on your entities.
-        System.out.println(postUpdateEvent.getOldState());
-        cashData.getMapCASHDATA().add(new MutablePair("update", (Product)postUpdateEvent.getEntity()));
+        //System.out.println(postUpdateEvent.getOldState());
+        System.out.println("The PostUpdateEvent comes here with data: "+ Arrays.toString(postUpdateEvent.getState()));
+        System.out.println("PostUpdateEvent");
+        cashData.getCASHDATA().add(new MutablePair("update", (Product)postUpdateEvent.getEntity()));
     }
 
     @Override
