@@ -10,16 +10,20 @@ import javax.persistence.Id;
 @Entity
 public class Product {
 
-    @Id
-    @GeneratedValue(generator = "uuid")
+
+    /* @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
+
+    */
+    @Id
     private String id;
 
     private String name;
 
     private String attribute;
 
-    public Product(String name, String attribute) {
+    public Product(String id, String name, String attribute) {
+        this.id = id;
         this.name = name;
         this.attribute = attribute;
     }

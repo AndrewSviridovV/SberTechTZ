@@ -47,7 +47,7 @@ public class ProductConfigDB1 {
                 @Qualifier("productDataSource1") DataSource dataSource
         ) {
                 final HashMap<String, Object> properties = new HashMap<String, Object>();
-                properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.jpa.properties.hibernate.ddl-auto"));
+                properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.jpa.properties.hibernate.hbm2ddl.auto"));
                 properties.put("hibernate.dialect", env.getProperty("spring.jpa.properties.hibernate.dialect"));
                 properties.put("hibernate.format_sql", env.getProperty("spring.jpa.properties.hibernate.format_sql"));
                 properties.put("hibernate.show_sql", env.getProperty("spring.jpa.properties.hibernate.show_sql"));

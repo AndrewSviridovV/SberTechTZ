@@ -1,16 +1,25 @@
-package ru.sviridov.sbertech.service;
+package ru.sviridov.sbertech.listeners;
 
+import org.apache.commons.lang3.tuple.MutablePair;
 import org.hibernate.event.spi.PostUpdateEvent;
 import org.hibernate.event.spi.PostUpdateEventListener;
 import org.hibernate.persister.entity.EntityPersister;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.sviridov.sbertech.CashData;
+import ru.sviridov.sbertech.model.Product;
 
 @Component
 public class UpdateEventListenerClass implements PostUpdateEventListener {
+
+    @Autowired
+    private CashData cashData;
+
     @Override
     public void onPostUpdate(PostUpdateEvent postUpdateEvent) {
         //Subscriber to the update events on your entities.
         System.out.println(postUpdateEvent.getOldState());
+        cashData.getMapCASHDATA().add(new MutablePair("update", (Product)postUpdateEvent.getEntity()));
     }
 
     @Override

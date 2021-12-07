@@ -27,7 +27,7 @@ class SberTechApplicationTests {
         @Test
         @Transactional("productTransactionManager1")
         public void create_check_product() {
-            Product product = new Product("name1","Running Shoes");
+            Product product = new Product("1","name1","Running Shoes");
             product = productRepository1.save(product);
 
             assertNotNull(productRepository1.findById(product.getId()));
