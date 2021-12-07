@@ -19,18 +19,12 @@ public class InsertEventListenerClass implements PostInsertEventListener {
 
     @Override
     public void onPostInsert(PostInsertEvent postInsertEvent) {
-        //Subscriber to the insert events on your entities.
-        System.out.println("The PostInsertEvent comes here with data: "+ Arrays.toString(postInsertEvent.getState()));
-        System.out.println("onPostInsert");
+        System.out.println("The PostInsertEvent comes here with data: "+postInsertEvent.getEntity().toString()+"\n");
         cashData.getCASHDATA().add(new MutablePair<>("insert", (Product)postInsertEvent.getEntity()));
     }
 
     @Override
     public boolean requiresPostCommitHanding(EntityPersister entityPersister) {
-        // Does this listener require that after transaction hooks be registered?
-        // Typically this is true for post-insert event listeners,
-        // but may not be, for example,
-        // in JPA cases where there are no callbacks defined for the particular entity.
         return true;
     }
 }

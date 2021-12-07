@@ -11,10 +11,6 @@ import javax.persistence.Id;
 public class Product {
 
 
-    /* @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-
-    */
     @Id
     private String id;
 

@@ -14,25 +14,15 @@ import java.util.ArrayList;
 @Configuration
 public class CashData {
 
-    private static Integer counter;
-
     @PostConstruct
     protected void init() {
         this.CASHDATA=new ArrayList<Pair<String,Product>>();
-        this.counter=0;
     }
-
-    @Bean
-    public CashData getCashData(){
-        return new CashData();
-    }
-
 
     public CashData() {
     }
 
     private static ArrayList<Pair<String,Product>> CASHDATA;
-
 
     public ArrayList<Pair<String,Product>> getCASHDATA() {
         return CASHDATA;
@@ -42,7 +32,4 @@ public class CashData {
         CashData.CASHDATA = CASHDATA;
     }
 
-    public  Integer getCounter() {
-        return counter++;
-    }
 }

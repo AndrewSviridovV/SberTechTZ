@@ -19,19 +19,12 @@ public class UpdateEventListenerClass implements PostUpdateEventListener {
 
     @Override
     public void onPostUpdate(PostUpdateEvent postUpdateEvent) {
-        //Subscriber to the update events on your entities.
-        //System.out.println(postUpdateEvent.getOldState());
-        System.out.println("The PostUpdateEvent comes here with data: "+ Arrays.toString(postUpdateEvent.getState()));
-        System.out.println("PostUpdateEvent");
+        System.out.println("The PostUpdateEvent comes here with data: "+ postUpdateEvent.getEntity().toString()+"\n");
         cashData.getCASHDATA().add(new MutablePair("update", (Product)postUpdateEvent.getEntity()));
     }
 
     @Override
     public boolean requiresPostCommitHanding(EntityPersister entityPersister) {
-        // Does this listener require that after transaction hooks be registered?
-        // Typically this is true for post-insert event listeners,
-        // but may not be, for example,
-        // in JPA cases where there are no callbacks defined for the particular entity.
         return true;
     }
 }
