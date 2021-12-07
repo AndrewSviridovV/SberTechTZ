@@ -10,7 +10,6 @@ import java.util.HashMap;
 @SpringBootApplication
 public class SberTechApplication {
 
-    public static HashMap cash=new HashMap<Integer, Product>();
     public static void main(String[] args) {
         SpringApplication.run(SberTechApplication.class, args);
     }
